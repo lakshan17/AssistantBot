@@ -11,9 +11,9 @@ assistant = Client(
    bot_token=C.TG_BOT_TOKEN,
 )
 
-START_TEXT=""
+START_TEXT="hii"
 
-HELP_TEXT=""
+HELP_TEXT="hui"
 
 @assistant.on_message(filters.command("start"))
 async def home(client, message):
@@ -49,6 +49,21 @@ async def help(client, message):
         parse_mode="html",
         reply_to_message_id=message.message_id
     )                           
+
+@assistant.on_message(filters.command('about')
+async def help(client, message):
+  buttons = [[
+        InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home'
+    ]]
+  reply_markup = InlineKeyboardMarkup(buttons)
+  await Tgraph.send_message(
+        chat_id=message.chat.id,
+        text="""About"""
+        reply_markup=reply_markup,
+        parse_mode="html",
+        reply_to_message_id=message.message_id
+    )                           
+
                            
 @assistant.on_callback_query()
 async def button(assistant, update):
