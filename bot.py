@@ -29,7 +29,7 @@ async def home(client, message):
         InlineKeyboardButton('♻ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 ♻', url='http://t.me/ItsMeDevinda')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
-  await Tgraph.send_message(
+  await assistant.send_message(
         chat_id=message.chat.id,
         text=START_TEXT
         reply_markup=reply_markup,
@@ -43,7 +43,7 @@ async def help(client, message):
         InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home'
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
-  await Tgraph.send_message(
+  await assistant.send_message(
         chat_id=message.chat.id,
         text=HELP_TEXT
         reply_markup=reply_markup,
@@ -57,7 +57,7 @@ async def help(client, message):
         InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home'
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
-  await Tgraph.send_message(
+  await assistant.send_message(
         chat_id=message.chat.id,
         text="""About"""
         reply_markup=reply_markup,
