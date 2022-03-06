@@ -4,8 +4,8 @@ from pyrogram import filters, Client
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InlineQuery)
 from sample_config import Config as C
 
-assistant = Client(
-   "My Assistant Bot",
+assistant=Client(
+   "My-Assistant-Bot",
    api_id=C.APP_ID,
    api_hash=C.API_HASH,
    bot_token=C.TG_BOT_TOKEN,
@@ -92,4 +92,4 @@ async def button(assistant, update):
         await update.message.delete()
         await about(assistant, update.message)
 
-@assistant.run()
+assistant.run()
