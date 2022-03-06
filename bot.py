@@ -11,9 +11,23 @@ assistant = Client(
    bot_token=C.TG_BOT_TOKEN,
 )
 
-START_TEXT="hii"
+IMAGE="""https://telegra.ph/file/c7ff46a66f080b8e07a7c.jpg"""
 
-HELP_TEXT="hui"
+START_TEXT="""Hᴇʟʟᴏ Tʜᴇʀᴇ 👋 {}!
+
+🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ <b>ƚԋҽɳυƙ ƈԋαɳυƙα</b>...
+
+🥰Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ..."""
+
+HELP_TEXT="""☘️ Hᴏᴡ Tᴏ Usᴇ Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ 
+
+I'ᴍ A Assɪsᴛᴀɴᴛ Bᴏᴛ Oғ <b>Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ</b>. Hᴏᴡᴇᴠᴇʀ I'ᴍ Aʟsᴏ Wᴏʀᴋɪɴɢ As A PM Bᴏᴛ...
+
+𝙼𝚊𝚒𝚗 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 
+
+/start ⇝ <b>Tᴏ Sᴛᴀʀᴛ Mᴇ</b>
+/help ⇝ <b>Tᴏ Gᴇᴛ Tʜɪs Mᴇssᴀɢᴇ</b>
+/about ⇝ <b>Tᴏ Sᴇᴇ Mʏ Aʙᴏᴜᴛ Iɴғᴏ</b>"""
 
 @assistant.on_message(filters.command("start"))
 async def home(client, message):
@@ -25,9 +39,10 @@ async def home(client, message):
         InlineKeyboardButton('🌻 𝐓𝐨𝐨𝐥𝐬 🌻', url='http://t.me/Itzmedevinda')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
-  await assistant.send_message(
+  await assistant.send_photo(
         chat_id=message.chat.id,
-        text=START_TEXT,
+        photo=IMAGE
+        caption=START_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -39,23 +54,25 @@ async def help(client, message):
         InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
-  await assistant.send_message(
+  await assistant.send_photo(
         chat_id=message.chat.id,
-        text=HELP_TEXT,
+        photo=IMAGE
+        caption=HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
     )                           
 
 @assistant.on_message(filters.command("about"))
-async def help(client, message):
+async def about(client, message):
   buttons = [[
         InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
-  await assistant.send_message(
+  await assistant.send_photo(
         chat_id=message.chat.id,
-        text="""About""",
+        photo=IMAGE
+        caption="""About""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
