@@ -37,7 +37,7 @@ async def home(client, message):
         reply_to_message_id=message.message_id
     )                           
 
-@assistant.on_message(filters.command('help')
+@assistant.on_message(filters.command('help'))
 async def help(client, message):
   buttons = [[
         InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home'
@@ -51,7 +51,7 @@ async def help(client, message):
         reply_to_message_id=message.message_id
     )                           
 
-@assistant.on_message(filters.command('about')
+@assistant.on_message(filters.command('about'))
 async def help(client, message):
   buttons = [[
         InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home'
