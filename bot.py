@@ -21,12 +21,8 @@ async def home(client, message):
         InlineKeyboardButton('🙋‍♂️ 𝐇𝐞𝐥𝐩 🙋‍♂️', callback_data='help'),
         InlineKeyboardButton('🌹 𝐀𝐛𝐨𝐮𝐭 🌹', callback_data='about')
     ],
-    [
-        InlineKeyboardButton('◇──────────────◇', assistant.answer("𝐓𝐡𝐚𝐧𝐤 𝐘𝐨𝐮 𝐅𝐨𝐫 𝐒𝐭𝐚𝐫𝐭 𝐌𝐲 𝐁𝐨𝐭🥰", show_alert=True))
-    ],
     [   
-        InlineKeyboardButton('🌻 𝐓𝐨𝐨𝐥𝐬 🌻', url='http://t.me/Itzmedevinda'),
-        InlineKeyboardButton('♻ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 ♻', url='http://t.me/ItsMeDevinda')
+        InlineKeyboardButton('🌻 𝐓𝐨𝐨𝐥𝐬 🌻', url='http://t.me/Itzmedevinda')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_message(
