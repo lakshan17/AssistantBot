@@ -54,7 +54,7 @@ async def help(client, message):
 @assistant.on_message(filters.command("about"))
 async def help(client, message):
   buttons = [[
-        InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home'
+        InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_message(
