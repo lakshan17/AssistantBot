@@ -22,7 +22,7 @@ async def home(client, message):
         InlineKeyboardButton('🌹 𝐀𝐛𝐨𝐮𝐭 🌹', callback_data='about')
     ],
     [
-        InlineKeyboardButton('◇──────────────◇', query.answer("𝐓𝐡𝐚𝐧𝐤 𝐘𝐨𝐮 𝐅𝐨𝐫 𝐒𝐭𝐚𝐫𝐭 𝐌𝐲 𝐁𝐨𝐭🥰", show_alert=True))
+        InlineKeyboardButton('◇──────────────◇', assistant.answer("𝐓𝐡𝐚𝐧𝐤 𝐘𝐨𝐮 𝐅𝐨𝐫 𝐒𝐭𝐚𝐫𝐭 𝐌𝐲 𝐁𝐨𝐭🥰", show_alert=True))
     ],
     [   
         InlineKeyboardButton('🌻 𝐓𝐨𝐨𝐥𝐬 🌻', url='http://t.me/Itzmedevinda'),
