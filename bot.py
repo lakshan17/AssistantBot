@@ -4,7 +4,7 @@ from pyrogram import filters, Client
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InlineQuery)
 from sample_config import Config as C
 
-assistan = Client(
+assistant = Client(
    "My-Assistant-Bot",
    api_id=C.APP_ID,
    api_hash=C.API_HASH,
@@ -42,7 +42,7 @@ async def home(client, message):
   await assistant.send_photo(
         chat_id=message.chat.id,
         photo=IMAGE,
-        caption=START_TEXT,
+        caption=START_TEXT.format(message.from_user.mention),
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
