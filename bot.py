@@ -31,7 +31,7 @@ async def home(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_message(
         chat_id=message.chat.id,
-        text=START_TEXT
+        text=START_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -45,7 +45,7 @@ async def help(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_message(
         chat_id=message.chat.id,
-        text=HELP_TEXT
+        text=HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -59,7 +59,7 @@ async def help(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_message(
         chat_id=message.chat.id,
-        text="""About"""
+        text="""About""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
