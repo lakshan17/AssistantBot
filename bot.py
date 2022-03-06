@@ -25,7 +25,7 @@ async def home(client, message):
         InlineKeyboardButton('◇──────────────◇', query.answer("𝐓𝐡𝐚𝐧𝐤 𝐘𝐨𝐮 𝐅𝐨𝐫 𝐒𝐭𝐚𝐫𝐭 𝐌𝐲 𝐁𝐨𝐭🥰", show_alert=True))
     ],
     [   
-        InlineKeyboardButton('🌻 𝐓𝐨𝐨𝐥𝐬 🌻, url='http://t.me/Itzmedevinda'),
+        InlineKeyboardButton('🌻 𝐓𝐨𝐨𝐥𝐬 🌻', url='http://t.me/Itzmedevinda'),
         InlineKeyboardButton('♻ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 ♻, url='http://t.me/ItsMeDevinda')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
