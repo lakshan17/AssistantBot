@@ -41,7 +41,7 @@ async def home(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_photo(
         chat_id=message.chat.id,
-        photo=IMAGE
+        photo=IMAGE,
         caption=START_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
@@ -56,7 +56,7 @@ async def help(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_photo(
         chat_id=message.chat.id,
-        photo=IMAGE
+        photo=IMAGE,
         caption=HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
@@ -71,7 +71,7 @@ async def about(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_photo(
         chat_id=message.chat.id,
-        photo=IMAGE
+        photo=IMAGE,
         caption="""About""",
         reply_markup=reply_markup,
         parse_mode="html",
