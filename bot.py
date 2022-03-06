@@ -92,4 +92,4 @@ async def button(assistant, update):
         await update.message.delete()
         await about(assistant, update.message)
 
-assistant.run()
+@assistant.run()
