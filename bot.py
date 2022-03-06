@@ -4,7 +4,7 @@ from pyrogram import filters, Client
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InlineQuery)
 from sample_config import Config as C
 
-assistant=Client(
+assistan = Client(
    "My-Assistant-Bot",
    api_id=C.APP_ID,
    api_hash=C.API_HASH,
