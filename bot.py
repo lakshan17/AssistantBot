@@ -11,7 +11,7 @@ assistant = Client(
    bot_token=C.TG_BOT_TOKEN,
 )
 
-IMAGE="""https://telegra.ph/file/c7ff46a66f080b8e07a7c.jpg"""
+IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
 START_TEXT="""Hᴇʟʟᴏ Tʜᴇʀᴇ 👋 {}!
 
