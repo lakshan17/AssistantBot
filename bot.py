@@ -63,7 +63,7 @@ async def home(client, message):
         InlineKeyboardButton(◇────────────────◇", callback_data="stats_call")
     ],
     [   
-        InlineKeyboardButton('🆘 𝐀𝐥𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 🆘', url='http://t.me/Itzmedevinda')
+        InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/Itzmedevinda')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await assistant.send_photo(
