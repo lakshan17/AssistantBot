@@ -13,17 +13,17 @@ assistant = Client(
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
-START_TEXT="""**👋Hᴇʟʟᴏ Tʜᴇʀᴇ** {first}!
+START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ {}!
 
-🌹**I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ** **--ƚԋҽɳυƙ ƈԋαɳυƙα--**...
+🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
 
-🥰**Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ**..."""
+🥰Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ..."""
 
-HELP_TEXT="""☘️ Hᴏᴡ Tᴏ Usᴇ Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ 
+HELP_TEXT="""☘️ <b><u>Hᴏᴡ Tᴏ Usᴇ Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ</u> 
 
-I'ᴍ A Assɪsᴛᴀɴᴛ Bᴏᴛ Oғ <b>Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ</b>. Hᴏᴡᴇᴠᴇʀ I'ᴍ Aʟsᴏ Wᴏʀᴋɪɴɢ As A PM Bᴏᴛ...
+I'ᴍ A Assɪsᴛᴀɴᴛ Bᴏᴛ Oғ Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ. Hᴏᴡᴇᴠᴇʀ I'ᴍ Aʟsᴏ Wᴏʀᴋɪɴɢ As A PM Bᴏᴛ</b>...
 
-𝙼𝚊𝚒𝚗 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 
+<b><u>𝙼𝚊𝚒𝚗 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜</u></b> 
 
 /start ⇝ <b>Tᴏ Sᴛᴀʀᴛ Mᴇ</b>
 /help ⇝ <b>Tᴏ Gᴇᴛ Tʜɪs Mᴇssᴀɢᴇ</b>
@@ -47,10 +47,10 @@ async def bot_msg():
 """
     return stat     
 
-@app.on_callback_query(filters.regex("stats_call"))
+@assistant.on_callback_query(filters.regex("stats_call"))
 async def stats_callbacc(_, CallbackQuery):
     text = await bot_msg()
-    await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)
+    await assistant.answer_callback_query(CallbackQuery.id, text, show_alert=True)
 
 
 @assistant.on_message(filters.command("start"))
@@ -69,9 +69,9 @@ async def home(client, message):
   await assistant.send_photo(
         chat_id=message.chat.id,
         photo=IMAGE,
-        caption=START_TEXT,
+        caption=START_TEXT.format(message.from_user.mention),
         reply_markup=reply_markup,
-        parse_mode="markdown",
+        parse_mode="html",
         reply_to_message_id=message.message_id
     )                           
 
