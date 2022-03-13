@@ -29,6 +29,19 @@ I'ᴍ A Assɪsᴛᴀɴᴛ Bᴏᴛ Oғ <b>Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ</b>. H
 /help ⇝ <b>Tᴏ Gᴇᴛ Tʜɪs Mᴇssᴀɢᴇ</b>
 /about ⇝ <b>Tᴏ Sᴇᴇ Mʏ Aʙᴏᴜᴛ Iɴғᴏ</b>"""
 
+ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</u></b>🌷
+
+🙋‍♂I ᴀᴍ A Sᴄʜᴏᴏʟ Sᴛᴜᴅᴇɴᴛ Lᴇᴀʀɴɪɴɢ Iɴ Gʀᴀᴅᴇ 10😎. I'ᴍ Gᴏɪɴɢ Tᴏ Nᴀʀᴀɴᴅᴇɴɪʏᴀ Cᴇɴᴛʀᴀʟ Cᴏʟʟᴇɢᴇ. 🌹I Lɪᴠᴇ Iɴ Kᴀᴍʙᴜʀᴜᴘɪᴛɪʏᴀ ɪɴ Mᴀᴛᴀʀᴀ Dɪsᴛʀɪᴄᴛ.
+
+☘️<b><u>𝘴ꪮꪑꫀ ỉꪀᠻꪮꪑꪖᡶỉꪮꪀ𝘴 ꪖ᥇ꪮꪊᡶ ꪑꫀ...</u></b>☘️
+
+╔<b>Rᴇᴀʟ Nᴀᴍᴇ</b> » Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ
+╠<b>Nɪᴋᴇ Nᴀᴍᴇ</b> » ঔ৫⃟➤Ꮋ‌ᵁ‌ᴺ‌᚜ᚸ⃝⃘⃟⃠‌᚛ᵀ‌ᴱ‌Ꮢ
+╠<b>Lɪᴠᴇ ɪɴ</b>         » Kᴀᴍʙᴜʀᴜᴘɪᴛɪʏᴀ 
+╠<b>Aɢᴇ</b>              » Yᴏᴜ Kɴᴏᴡ Iᴛ...
+╚<b>Bɪʀᴛʜ Dᴀʏ</b>  » 2006 Sᴇᴘᴛᴇᴍʙᴇʀ 27"""
+
+
 @assistant.on_message(filters.command("start"))
 async def home(client, message):
   buttons = [[
@@ -72,7 +85,7 @@ async def about(client, message):
   await assistant.send_photo(
         chat_id=message.chat.id,
         photo=IMAGE,
-        caption="""About""",
+        caption=ABOUT_MSG,
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -83,13 +96,13 @@ async def about(client, message):
 async def button(assistant, update):
       cb_data = update.data
       if "help" in cb_data:
-        await update.message.delete()
+        await update.message.edit()
         await help(assistant, update.message)
       elif "home" in cb_data:
-        await update.message.delete()
+        await update.message.edit()
         await home(assistant, update.message)
       elif "about" in cb_data:
-        await update.message.delete()
+        await update.message.edit()
         await about(assistant, update.message)
 
 assistant.run()
