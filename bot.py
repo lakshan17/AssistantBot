@@ -13,11 +13,11 @@ assistant = Client(
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
-START_TEXT="""Hᴇʟʟᴏ Tʜᴇʀᴇ 👋 {}!
+START_TEXT="""**👋Hᴇʟʟᴏ Tʜᴇʀᴇ** {first}!
 
-🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ <b>ƚԋҽɳυƙ ƈԋαɳυƙα</b>...
+🌹**I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ** **--ƚԋҽɳυƙ ƈԋαɳυƙα--**...
 
-🥰Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ..."""
+🥰**Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ**..."""
 
 HELP_TEXT="""☘️ Hᴏᴡ Tᴏ Usᴇ Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ 
 
@@ -41,12 +41,26 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
 ╠<b>Aɢᴇ</b>              » Yᴏᴜ Kɴᴏᴡ Iᴛ...
 ╚<b>Bɪʀᴛʜ Dᴀʏ</b>  » 2006 Sᴇᴘᴛᴇᴍʙᴇʀ 27"""
 
+async def bot_msg():
+    stat = f"""
+🌹Thank You For Using My Assistant.
+"""
+    return stat     
+
+@app.on_callback_query(filters.regex("stats_call"))
+async def stats_callbacc(_, CallbackQuery):
+    text = await bot_msg()
+    await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)
+
 
 @assistant.on_message(filters.command("start"))
 async def home(client, message):
   buttons = [[
         InlineKeyboardButton('🙋‍♂️ 𝐇𝐞𝐥𝐩 🙋‍♂️', callback_data='help'),
         InlineKeyboardButton('🌹 𝐀𝐛𝐨𝐮𝐭 🌹', callback_data='about')
+    ],
+    [
+        InlineKeyboardButton(◇────────────────◇", callback_data="stats_call")
     ],
     [   
         InlineKeyboardButton('🌻 𝐓𝐨𝐨𝐥𝐬 🌻', url='http://t.me/Itzmedevinda')
@@ -55,9 +69,9 @@ async def home(client, message):
   await assistant.send_photo(
         chat_id=message.chat.id,
         photo=IMAGE,
-        caption=START_TEXT.format(message.from_user.mention),
+        caption=START_TEXT,
         reply_markup=reply_markup,
-        parse_mode="html",
+        parse_mode="markdown",
         reply_to_message_id=message.message_id
     )                           
 
@@ -96,13 +110,13 @@ async def about(client, message):
 async def button(assistant, update):
       cb_data = update.data
       if "help" in cb_data:
-        await update.message.edit()
+        await update.message.edit_text()
         await help(assistant, update.message)
       elif "home" in cb_data:
-        await update.message.edit()
+        await update.message.edit_text()
         await home(assistant, update.message)
       elif "about" in cb_data:
-        await update.message.edit()
+        await update.message.edit_text()
         await about(assistant, update.message)
 
 assistant.run()
