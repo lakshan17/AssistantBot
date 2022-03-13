@@ -43,7 +43,7 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
 
 async def bot_msg():
     stat = f"""
-🌹Thank You For Using My Assistant.
+🌹Thank You For Using My Assistant Bot.
 """
     return stat     
 
