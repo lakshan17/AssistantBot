@@ -60,7 +60,7 @@ async def home(client, message):
         InlineKeyboardButton('🌹 𝐀𝐛𝐨𝐮𝐭 🌹', callback_data='about')
     ],
     [
-        InlineKeyboardButton(◇────────────────◇", callback_data="stats_call")
+        InlineKeyboardButton('◇────────────────◇', callback_data="stats_call")
     ],
     [   
         InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/Itzmedevinda')
