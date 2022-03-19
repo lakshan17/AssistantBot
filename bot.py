@@ -120,76 +120,6 @@ async def aboutenu(_, query: CallbackQuery):
     )      
 
 
-async def bot_msg():
-    stat = f"""
-🌹Thank You For Using My Assistant Bot.
-"""
-    return stat     
-
-@assistant.on_callback_query(filters.regex("stats_call"))
-async def stats_callbacc(_, CallbackQuery):
-    text = await bot_msg()
-    await assistant.answer_callback_query(CallbackQuery.id, text, show_alert=True)
-
-
-@assistant.on_message(filters.command("start"))
-async def home(client, message):
-  buttons = [[
-        InlineKeyboardButton('🙋‍♂️ 𝐇𝐞𝐥𝐩 🙋‍♂️', callback_data='help'),
-        InlineKeyboardButton('🌹 𝐀𝐛𝐨𝐮𝐭 🌹', callback_data='about')
-    ],
-    [
-        InlineKeyboardButton('◇────────────────◇', callback_data="stats_call")
-    ],
-    [   
-        InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/Itzmedevinda')
-    ]]
-  reply_markup = InlineKeyboardMarkup(buttons)
-  await bot.send_message(
-        chat_id=owner_id,
-        text=LOG_TEXT.format(message.chat.id,message.chat.id,message.chat.first_name,message.chat.last_name,message.chat.dc_id),
-        parse_mode="html"
-    )
-  await assistant.send_photo(
-        chat_id=message.chat.id,
-        photo=IMAGE,
-        caption=START_TEXT.format(message.from_user.mention),
-        reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=message.message_id
-    )                           
-
-@assistant.on_message(filters.command("help"))
-async def help(client, message):
-  buttons = [[
-        InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home')
-    ]]
-  reply_markup = InlineKeyboardMarkup(buttons)
-  await assistant.send_photo(
-        chat_id=message.chat.id,
-        photo=IMAGE,
-        caption=HELP_TEXT,
-        reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=message.message_id
-    )                           
-
-@assistant.on_message(filters.command("about"))
-async def about(client, message):
-  buttons = [[
-        InlineKeyboardButton('🔙 𝐁𝐚𝐜𝐤', callback_data='home')
-    ]]
-  reply_markup = InlineKeyboardMarkup(buttons)
-  await assistant.send_photo(
-        chat_id=message.chat.id,
-        photo=IMAGE,
-        caption=ABOUT_MSG,
-        reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=message.message_id
-    )                           
-
-
 @assistant.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
     if message.from_user.id == owner_id:
@@ -258,20 +188,6 @@ async def replay_media(bot, message):
             message_id=message.message_id,
             parse_mode="html"
         )
-
-
-@assistant.on_callback_query()
-async def button(assistant, update):
-      cb_data = update.data
-      if "help" in cb_data:
-        await update.message.delete()
-        await help(assistant, update.message)
-      elif "home" in cb_data:
-        await update.message.delete()
-        await home(assistant, update.message)
-      elif "about" in cb_data:
-        await update.message.delete()
-        await about(assistant, update.message)
 
                            
 assistant.run()
