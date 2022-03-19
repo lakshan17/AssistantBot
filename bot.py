@@ -9,6 +9,7 @@ assistant = Client(
    api_id=C.APP_ID,
    api_hash=C.API_HASH,
    bot_token=C.TG_BOT_TOKEN,
+   owner_id="5280867626",
 )
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
@@ -40,6 +41,12 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
 ╠<b>Lɪᴠᴇ ɪɴ</b>         » Kᴀᴍʙᴜʀᴜᴘɪᴛɪʏᴀ 
 ╠<b>Aɢᴇ</b>              » Yᴏᴜ Kɴᴏᴡ Iᴛ...
 ╚<b>Bɪʀᴛʜ Dᴀʏ</b>  » 2006 Sᴇᴘᴛᴇᴍʙᴇʀ 27"""
+
+
+IF_TEXT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
+
+IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
+
 
 async def bot_msg():
     stat = f"""
@@ -104,6 +111,77 @@ async def about(client, message):
         parse_mode="html",
         reply_to_message_id=message.message_id
     )                           
+
+
+@Assistant.on_message(filters.private & filters.text)
+async def pm_text(bot, message):
+    if message.from_user.id == owner_id:
+        await reply_text(bot, message)
+        return
+    info = await bot.get_users(user_ids=message.from_user.id)
+    reference_id = int(message.chat.id)
+    await bot.send_message(
+        chat_id=owner_id,
+        text=IF_TEXT.format(reference_id, info.first_name, message.text),
+        parse_mode="html"
+    )
+
+
+@Assistant.on_message(filters.private & filters.media)
+async def pm_media(bot, message):
+    if message.from_user.id == owner_id:
+        await replay_media(bot, message)
+        return
+    info = await bot.get_users(user_ids=message.from_user.id)
+    reference_id = int(message.chat.id)
+    await bot.copy_message(
+        chat_id=owner_id,
+        from_chat_id=message.chat.id,
+        message_id=message.message_id,
+        caption=IF_CONTENT.format(reference_id, info.first_name),
+        parse_mode="html"
+    )
+
+
+@Assistant.on_message(filters.user(owner_id) & filters.text)
+async def reply_text(bot, message):
+    reference_id = True
+    if message.reply_to_message is not None:
+        file = message.reply_to_message
+        try:
+            reference_id = file.text.split()[2]
+        except Exception:
+            pass
+        try:
+            reference_id = file.caption.split()[2]
+        except Exception:
+            pass
+        await bot.send_message(
+            text=message.text,
+            chat_id=int(reference_id)
+        )
+
+
+@Assistant.on_message(filters.user(owner_id) & filters.media)
+async def replay_media(bot, message):
+    reference_id = True
+    if message.reply_to_message is not None:
+        file = message.reply_to_message
+        try:
+            reference_id = file.text.split()[2]
+        except Exception:
+            pass
+        try:
+            reference_id = file.caption.split()[2]
+        except Exception:
+            pass
+        await bot.copy_message(
+            chat_id=int(reference_id),
+            from_chat_id=message.chat.id,
+            message_id=message.message_id,
+            parse_mode="html"
+        )
+
 
 @assistant.on_callback_query()
 async def button(assistant, update):
