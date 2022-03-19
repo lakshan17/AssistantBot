@@ -1,16 +1,13 @@
 {
     "name": "Telegraph Uploader Bot",
-    "description": "A bot that can upload medias to Telegra.ph",
-    "logo": "https://telegra.ph/file/8e501f826eb025048c7ba.jpg",
+    "description": "Telegram bot",
+    "logo": "https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg",
     "keywords": [
-        "Telegra.ph",
-        "Uploader",
-        "Telegram Bot",
-        "SDBOTs"
+        "Telegram Bot"
     ],
-    "website": "https://t.me/SDBOTs_inifinity",
-    "repository": "https://github.com/Sadew451/SDTelegraphBot",
-    "success_url": "https://telegram.dog/SDBOTsz",
+    "website": "",
+    "repository": "https://github.com/DevindaOfficial/AssistantBot",
+    "success_url": "",
     "env": {
         "TG_BOT_TOKEN": {
             "description": "You Telegram Bot Token from @BotFather",
