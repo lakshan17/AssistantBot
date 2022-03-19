@@ -10,6 +10,7 @@ assistant = Client(
    api_hash=C.API_HASH,
    bot_token=C.TG_BOT_TOKEN,
 )
+
 owner_id=C.OWNER_ID
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
@@ -144,6 +145,11 @@ async def home(client, message):
         InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/Itzmedevinda')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
+  await bot.send_message(
+        chat_id=owner_id,
+        text=LOG_TEXT.format(message.chat.id,message.chat.id,message.chat.first_name,message.chat.last_name,message.chat.dc_id),
+        parse_mode="html"
+    )
   await assistant.send_photo(
         chat_id=message.chat.id,
         photo=IMAGE,
