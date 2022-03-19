@@ -43,9 +43,9 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
 ╚<b>Bɪʀᴛʜ Dᴀʏ</b>  » 2006 Sᴇᴘᴛᴇᴍʙᴇʀ 27"""
 
 
-IF_TEXT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
+IF_TEXT = "<b><u>✅New Message</u></b>\n\n<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
 
-IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
+IF_CONTENT = "<b><u>✅New Message</u></b>\n\n<b>Message from:</b> {} \n<b>Name:</b> {}"
 
 
 async def bot_msg():
