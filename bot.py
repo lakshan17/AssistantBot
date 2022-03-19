@@ -106,17 +106,4 @@ async def about(client, message):
     )                           
 
                            
-@assistant.on_callback_query()
-async def button(assistant, update):
-      cb_data = update.data
-      if "help" in cb_data:
-        await update.message.edit_text()
-        await help(assistant, update.message)
-      elif "home" in cb_data:
-        await update.message.edit_text()
-        await home(assistant, update.message)
-      elif "about" in cb_data:
-        await update.message.edit_text()
-        await about(assistant, update.message)
-
 assistant.run()
