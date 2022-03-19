@@ -8,4 +8,4 @@ class Config(object):
 
     API_HASH = os.environ.get("API_HASH", "")
 
-    OWNER_ID = 
+    OWNER_ID = "5280867626"
