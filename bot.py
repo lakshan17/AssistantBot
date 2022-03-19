@@ -105,5 +105,18 @@ async def about(client, message):
         reply_to_message_id=message.message_id
     )                           
 
+@assistant.on_callback_query()
+async def button(assistant, update):
+      cb_data = update.data
+      if "help" in cb_data:
+        await update.message.delete()
+        await help(assistant, update.message)
+      elif "home" in cb_data:
+        await update.message.delete()
+        await home(assistant, update.message)
+      elif "about" in cb_data:
+        await update.message.delete()
+        await about(assistant, update.message)
+
                            
 assistant.run()
