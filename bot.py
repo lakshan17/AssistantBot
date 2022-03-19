@@ -9,8 +9,8 @@ assistant = Client(
    api_id=C.APP_ID,
    api_hash=C.API_HASH,
    bot_token=C.TG_BOT_TOKEN,
-   owner_id=C.OWNER_ID,
 )
+owner_id=C.OWNER_ID
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
