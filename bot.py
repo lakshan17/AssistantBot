@@ -66,8 +66,8 @@ BACK = InlineKeyboardMarkup(
             ]
         )
 
+LOG_TEXT = "<b>✅New</b>\n\nID: <code>{}</code>\nFirst Name: <a href='tg://user?id={}'>{}{}</a>\nDC ID: <code>{}</code>"
 IF_TEXT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
-
 IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
 
 
@@ -86,6 +86,11 @@ async def stats_callbacc(_, CallbackQuery):
 
 @assistant.on_message(filters.command("start"))
 async def start(bot, update):
+    await update.send_message(
+        chat_id=owner_id,
+        text=LOG_TEXT.format(message.chat.id,message.chat.id,message.chat.first_name,message.chat.last_name,message.chat.dc_id),
+        parse_mode="html"
+                )
     await update.reply_photo(
                     photo=IMAGE,
                     caption=START_TEXT.format(message.from_user.mention),
