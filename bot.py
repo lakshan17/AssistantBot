@@ -16,17 +16,19 @@ owner_id=C.OWNER_ID
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
 START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ {}!
+
 🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
+
 🥰Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ..."""
 
 START_BTN = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("About", callback_data="about"),
-                    InlineKeyboardButton("Help", callback_data="help")
+                    InlineKeyboardButton("🌹 About 🌹", callback_data="aboutnu"),
+                    InlineKeyboardButton("🙋‍♂ Help 🙋‍♂", callback_data="helpmenu")
                 ],
                 [
-                    InlineKeyboardButton('◇────────────────◇', callback_data="stats_call"),
+                    InlineKeyboardButton('◇───────────────◇', callback_data="stats_call"),
                 ],
                 [
                     InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/Itzmedevinda')
@@ -35,15 +37,21 @@ START_BTN = InlineKeyboardMarkup(
         )
 
 HELP_TEXT="""☘️ <b><u>Hᴏᴡ Tᴏ Usᴇ Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ</u> 
+
 I'ᴍ A Assɪsᴛᴀɴᴛ Bᴏᴛ Oғ Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ. Hᴏᴡᴇᴠᴇʀ I'ᴍ Aʟsᴏ Wᴏʀᴋɪɴɢ As A PM Bᴏᴛ</b>...
+
 <b><u>𝙼𝚊𝚒𝚗 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜</u></b> 
+
 /start ⇝ <b>Tᴏ Sᴛᴀʀᴛ Mᴇ</b>
 /help ⇝ <b>Tᴏ Gᴇᴛ Tʜɪs Mᴇssᴀɢᴇ</b>
 /about ⇝ <b>Tᴏ Sᴇᴇ Mʏ Aʙᴏᴜᴛ Iɴғᴏ</b>"""
 
 ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</u></b>🌷
+
 🙋‍♂I ᴀᴍ A Sᴄʜᴏᴏʟ Sᴛᴜᴅᴇɴᴛ Lᴇᴀʀɴɪɴɢ Iɴ Gʀᴀᴅᴇ 10😎. I'ᴍ Gᴏɪɴɢ Tᴏ Nᴀʀᴀɴᴅᴇɴɪʏᴀ Cᴇɴᴛʀᴀʟ Cᴏʟʟᴇɢᴇ. 🌹I Lɪᴠᴇ Iɴ Kᴀᴍʙᴜʀᴜᴘɪᴛɪʏᴀ ɪɴ Mᴀᴛᴀʀᴀ Dɪsᴛʀɪᴄᴛ.
+
 ☘️<b><u>𝘴ꪮꪑꫀ ỉꪀᠻꪮꪑꪖᡶỉꪮꪀ𝘴 ꪖ᥇ꪮꪊᡶ ꪑꫀ...</u></b>☘️
+
 ╔<b>Rᴇᴀʟ Nᴀᴍᴇ</b> » Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ
 ╠<b>Nɪᴋᴇ Nᴀᴍᴇ</b> » ঔ৫⃟➤Ꮋ‌ᵁ‌ᴺ‌᚜ᚸ⃝⃘⃟⃠‌᚛ᵀ‌ᴱ‌Ꮢ
 ╠<b>Lɪᴠᴇ ɪɴ</b>         » Kᴀᴍʙᴜʀᴜᴘɪᴛɪʏᴀ 
@@ -53,7 +61,7 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
 BACK = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🔙Back", callback_data="startmenu")
+                    InlineKeyboardButton("🔙 Back", callback_data="startmenu")
                 ]
             ]
         )
