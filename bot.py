@@ -87,7 +87,7 @@ async def stats_callbacc(_, CallbackQuery):
 async def start(bot, update):
     await update.reply_photo(
                     photo=IMAGE,
-                    caption=START_TEXT,
+                    caption=START_TEXT.format(message.from_user.mention),
                     reply_markup=START_BTN,
                 )                      
 
