@@ -15,7 +15,7 @@ owner_id=C.OWNER_ID
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
-START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ {}!
+START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ {message.from_user.mention}!
 
 🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
 
@@ -87,7 +87,7 @@ async def stats_callbacc(_, CallbackQuery):
 async def start(bot, update):
     await update.reply_photo(
                     photo=IMAGE,
-                    caption=START_TEXT.format(message.from_user.mention),
+                    caption=START_TEXT,
                     reply_markup=START_BTN,
                 )                      
 
