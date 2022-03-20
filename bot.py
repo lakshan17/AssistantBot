@@ -15,7 +15,7 @@ owner_id=C.OWNER_ID
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
-START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ {message.from_user.mention}!
+START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ {}!
 
 🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
 
