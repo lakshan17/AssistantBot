@@ -73,7 +73,8 @@ IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
 
 async def bot_msg():
     stat = f"""
-🌹Thank You For Using My Assistant Bot.
+🌹Tʜᴀɴᴋ Yᴏᴜ Fᴏʀ Usɪɴɢ Mʏ Assɪsᴛᴀɴᴛ Bᴏᴛ.
+@MrHunterAX
 """
     return stat     
 
