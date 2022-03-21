@@ -131,7 +131,7 @@ async def aboutenu(_, query: CallbackQuery):
      disable_web_page_preview=True
     )      
 
-@bot.on_message(filters.private & filters.text)
+@assistant.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
     if message.from_user.id == owner_id:
         await reply_text(bot, message)
@@ -145,7 +145,7 @@ async def pm_text(bot, message):
     )
 
 
-@bot.on_message(filters.private & filters.media)
+@assistant.on_message(filters.private & filters.media)
 async def pm_media(bot, message):
     if message.from_user.id == owner_id:
         await replay_media(bot, message)
@@ -161,7 +161,7 @@ async def pm_media(bot, message):
     )
 
 
-@bot.on_message(filters.user(owner_id) & filters.text)
+@assistant.on_message(filters.user(owner_id) & filters.text)
 async def reply_text(bot, message):
     reference_id = True
     if message.reply_to_message is not None:
@@ -180,7 +180,7 @@ async def reply_text(bot, message):
         )
 
 
-@bot.on_message(filters.user(owner_id) & filters.media)
+@assistant.on_message(filters.user(owner_id) & filters.media)
 async def replay_media(bot, message):
     reference_id = True
     if message.reply_to_message is not None:
