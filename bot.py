@@ -31,7 +31,7 @@ START_BTN = InlineKeyboardMarkup(
                     InlineKeyboardButton('◇───────────────◇', callback_data="stats_call"),
                 ],
                 [
-                    InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/Itzmedevinda')
+                    InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/MrHunterAX')
                 ],
             ]
         )
