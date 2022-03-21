@@ -15,11 +15,11 @@ owner_id=C.OWNER_ID
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
-START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ!
+START_TEXT="""<b>👋Hᴇʟʟᴏ Tʜᴇʀᴇ!
 
 🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
 
-🥰Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ..."""
+🥰Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ...</b>"""
 
 START_BTN = InlineKeyboardMarkup(
             [
