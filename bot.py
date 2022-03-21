@@ -15,7 +15,7 @@ owner_id=C.OWNER_ID
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
-START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ {}!
+START_TEXT="""👋Hᴇʟʟᴏ Tʜᴇʀᴇ!
 
 🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
 
@@ -88,7 +88,7 @@ async def stats_callbacc(_, CallbackQuery):
 async def start(bot, update):
     await update.reply_photo(
                     photo=IMAGE,
-                    caption=START_TEXT.format(message.from_user.mention),
+                    caption=START_TEXT,
                     reply_markup=START_BTN,
                 )                      
 
@@ -107,7 +107,7 @@ async def about(bot, update):
 
 @assistant.on_callback_query(filters.regex("startmenu"))
 async def startmenu(_, query: CallbackQuery):
-    await query.edit_message_text(START_TEXT.format(update.from_user.mention),
+    await query.edit_message_text(START_TEXT,
         reply_markup=START_BTN,
      disable_web_page_preview=True
     )
@@ -140,22 +140,6 @@ async def pm_text(bot, message):
     )
 
 
-@assistant.on_message(filters.private & filters.media)
-async def pm_media(bot, message):
-    if message.from_user.id == owner_id:
-        await replay_media(bot, message)
-        return
-    info = await bot.get_users(user_ids=message.from_user.id)
-    reference_id = int(message.chat.id)
-    await bot.copy_message(
-        chat_id=owner_id,
-        from_chat_id=message.chat.id,
-        message_id=message.message_id,
-        caption=IF_CONTENT.format(reference_id, info.first_name),
-        parse_mode="html"
-    )
-
-
 @assistant.on_message(filters.user(owner_id) & filters.text)
 async def reply_text(bot, message):
     reference_id = True
@@ -172,27 +156,6 @@ async def reply_text(bot, message):
         await bot.send_message(
             text=message.text,
             chat_id=int(reference_id)
-        )
-
-
-@assistant.on_message(filters.user(owner_id) & filters.media)
-async def replay_media(bot, message):
-    reference_id = True
-    if message.reply_to_message is not None:
-        file = message.reply_to_message
-        try:
-            reference_id = file.text.split()[2]
-        except Exception:
-            pass
-        try:
-            reference_id = file.caption.split()[2]
-        except Exception:
-            pass
-        await bot.copy_message(
-            chat_id=int(reference_id),
-            from_chat_id=message.chat.id,
-            message_id=message.message_id,
-            parse_mode="html"
         )
                            
 assistant.run()
