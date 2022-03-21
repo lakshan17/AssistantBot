@@ -86,11 +86,6 @@ async def stats_callbacc(_, CallbackQuery):
 
 @assistant.on_message(filters.command("start"))
 async def start(bot, update):
-    await update.send_message(
-        chat_id=owner_id,
-        text=LOG_TEXT.format(message.chat.id,message.chat.id,message.chat.first_name,message.chat.last_name,message.chat.dc_id),
-        parse_mode="html"
-                )
     await update.reply_photo(
                     photo=IMAGE,
                     caption=START_TEXT.format(message.from_user.mention),
