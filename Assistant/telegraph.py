@@ -31,15 +31,27 @@ async def telegraph(client, message):
         message=message.reply_to_message,
         file_name="root/downloads/",
     )
-    message = await message.reply_text("`𝐏𝐫𝐨𝐜𝐜𝐞𝐬𝐬𝐢𝐧𝐠...`")
-    await message.edit_text("`𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠...`")
+    message = await message.reply_text("𝐏𝐫𝐨𝐜𝐜𝐞𝐬𝐬𝐢𝐧𝐠...")
+    await message.edit_text("𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠...")
+    await message.edit_text("[▇▇░░░░░░░░] 20%")
+    await message.edit_text("[▇▇▇▇░░░░░░] 40%")
+    await message.edit_text("[▇▇▇▇▇▇░░░░] 60%")
+    await message.edit_text("[▇▇▇▇▇▇▇▇░░] 80%")
+    await message.edit_text("[▇▇▇▇▇▇▇▇▇▇] 100%")
     try:
         response = upload_file(download_location)
     except Exception as document:
         await message.edit_text(message, text=document)
     else:
         await message.edit_text(
-            f"☘️𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐓𝐨 𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐩𝐡!\n◇─────────────◇\n❤️‍🔥𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐁𝐲 : @ThenukChanukaBOT \n🔗𝐔𝐑𝐋 : [Click Here](https://telegra.ph{response[0]}) \n⚡𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 : @TeamTCBots\n◇─────────────◇",
+            f"
+☘️𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐓𝐨 𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐩𝐡!
+
+◇─────────────◇
+❤️‍🔥𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐁𝐲 : @ThenukChanukaBOT 
+🔗𝐔𝐑𝐋 : [Click Here](https://telegra.ph{response[0]}) 
+⚡𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 : [྅𝐀𝐦ͭ𝐚ͪ𝐳ͤ𝐨𝐧 ͯ™ ๛](http://t.me/TheAmazonX)
+◇─────────────◇",
             disable_web_page_preview=True,
         )
     finally:
