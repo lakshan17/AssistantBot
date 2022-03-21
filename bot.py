@@ -87,9 +87,9 @@ async def stats_callbacc(_, CallbackQuery):
 @assistant.on_message(filters.command("start"))
 async def start(bot, update):
     await update.reply_photo(
-                    photo=IMAGE,
-                    caption=START_TEXT,
-                    reply_markup=START_BTN,
+                    photo= IMAGE,
+                    caption= START_TEXT,
+                    reply_markup= START_BTN,
                 )                      
 
 @assistant.on_message(filters.command("help"))
