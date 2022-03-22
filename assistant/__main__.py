@@ -50,7 +50,7 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
         ┗ 𝐒𝐢𝐭𝐡𝐢𝐣𝐚 𝐃𝐞𝐰𝐦𝐢𝐧𝐚
 """
 
-DEV_MSG="🌷<b><u>𝙾𝚞𝚛 𝙶𝚛𝚘𝚞𝚙𝚜, 𝙲𝚑𝚊𝚗𝚗𝚎𝚕𝚜 𝚊𝚗𝚍 𝙱𝚘𝚝𝚜</b><u/>🌷
+DEV_MSG="""🌷<b><u>𝙾𝚞𝚛 𝙶𝚛𝚘𝚞𝚙𝚜, 𝙲𝚑𝚊𝚗𝚗𝚎𝚕𝚜 𝚊𝚗𝚍 𝙱𝚘𝚝𝚜</b><u/>🌷
 
 Tʜɪs Is Aʟʟ Oᴜʀ Gʀᴏᴜᴘs Cʜᴀɴɴᴇʟs Aɴᴅ Bᴏᴛs
 
@@ -70,7 +70,7 @@ Tʜɪs Is Aʟʟ Oᴜʀ Gʀᴏᴜᴘs Cʜᴀɴɴᴇʟs Aɴᴅ Bᴏᴛs
 🌹<b><u>Ⴆσƚʂ</u></b>
 
 ➨<>ThenukChanukaBOT</>
-✅Mʏ Assɪsᴛᴀɴᴛ Bᴏᴛ Iɴ Tᴇʟᴇɢʀᴀᴍ"
+✅Mʏ Assɪsᴛᴀɴᴛ Bᴏᴛ Iɴ Tᴇʟᴇɢʀᴀᴍ"""
 
 DEV_BTN = InlineKeyboardMarkup(
             [
