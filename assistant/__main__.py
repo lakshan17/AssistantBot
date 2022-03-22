@@ -124,37 +124,5 @@ async def aboutenu(_, query: CallbackQuery):
         reply_markup=BACK,
      disable_web_page_preview=True
     )      
-
-@assistant.on_message(filters.private & filters.text)
-async def pm_text(bot, message):
-    if message.from_user.id == owner_id:
-        await reply_text(bot, message)
-        return
-    info = await bot.get_users(user_ids=message.from_user.id)
-    reference_id = int(message.chat.id)
-    await bot.send_message(
-        chat_id=owner_id,
-        text=IF_TEXT.format(reference_id, info.first_name, message.text),
-        parse_mode="html"
-    )
-
-
-@assistant.on_message(filters.user(owner_id) & filters.text)
-async def reply_text(bot, message):
-    reference_id = True
-    if message.reply_to_message is not None:
-        file = message.reply_to_message
-        try:
-            reference_id = file.text.split()[2]
-        except Exception:
-            pass
-        try:
-            reference_id = file.caption.split()[2]
-        except Exception:
-            pass
-        await bot.send_message(
-            text=message.text,
-            chat_id=int(reference_id)
-        )
-                           
+             
 assistant.run()
