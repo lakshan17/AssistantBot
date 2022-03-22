@@ -3,7 +3,7 @@ import pyrogram
 from pyrogram import filters, Client
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InlineQuery)
 from sample_config import Config as C
-from assistant.plugins import *
+from assistant.plugins import run
 
 assistant = Client(
    "My-Assistant-Bot",
@@ -21,21 +21,6 @@ START_TEXT="""<b>👋Hᴇʟʟᴏ Tʜᴇʀᴇ!
 🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
 
 🥰Aʟsᴏ Yᴏᴜ Cᴀɴ Cᴏɴᴛᴀᴄᴛ Hɪᴍ Usɪɴɢ Mᴇ...</b>"""
-
-START_BTN = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("🌹 About 🌹", callback_data="aboutnu"),
-                    InlineKeyboardButton("🙋‍♂ Help 🙋‍♂", callback_data="helpmenu")
-                ],
-                [
-                    InlineKeyboardButton('◇───────────────◇', callback_data="stats_call"),
-                ],
-                [
-                    InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/MrHunterAX')
-                ],
-            ]
-        )
 
 HELP_TEXT="""☘️ <b><u>Hᴏᴡ Tᴏ Usᴇ Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ</u> 
 I'ᴍ A Assɪsᴛᴀɴᴛ Bᴏᴛ Oғ Tʜᴇɴᴜᴋ Cʜᴀɴᴜᴋᴀ. Hᴏᴡᴇᴠᴇʀ I'ᴍ Aʟsᴏ Wᴏʀᴋɪɴɢ As A PM Bᴏᴛ</b>...
@@ -56,19 +41,96 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
 ╠<b>Nɪᴋᴇ Nᴀᴍᴇ</b> » ঔ৫⃟➤Ꮋ‌ᵁ‌ᴺ‌᚜ᚸ⃝⃘⃟⃠‌᚛ᵀ‌ᴱ‌Ꮢ
 ╠<b>Lɪᴠᴇ ɪɴ</b>         » Kᴀᴍʙᴜʀᴜᴘɪᴛɪʏᴀ 
 ╠<b>Aɢᴇ</b>              » Yᴏᴜ Kɴᴏᴡ Iᴛ...
-╚<b>Bɪʀᴛʜ Dᴀʏ</b>  » 2006 Sᴇᴘᴛᴇᴍʙᴇʀ 27"""
+╚<b>Bɪʀᴛʜ Dᴀʏ</b>  » 2006 Sᴇᴘᴛᴇᴍʙᴇʀ 27
 
-BACK = InlineKeyboardMarkup(
+🥰 <i>Ⲋⲣⲉⲥⲓⲇⳑ Ⲧⲏⲇⲛⲕ⳽</i>
+        ┏ 𝐌𝐞😎
+        ┃ 𝐫𝐨𝐨𝐭@𝐍𝐎𝐎𝐁
+        ┃ 𝐃𝐢𝐥𝐚𝐬𝐧𝐚 𝐋𝐢𝐭𝐡𝐦𝐚𝐧𝐭𝐡𝐚
+        ┗ 𝐒𝐢𝐭𝐡𝐢𝐣𝐚 𝐃𝐞𝐰𝐦𝐢𝐧𝐚
+"""
+
+DEV_MSG="🌷<b><u>𝙾𝚞𝚛 𝙶𝚛𝚘𝚞𝚙𝚜, 𝙲𝚑𝚊𝚗𝚗𝚎𝚕𝚜 𝚊𝚗𝚍 𝙱𝚘𝚝𝚜</b><u/>🌷
+
+Tʜɪs Is Aʟʟ Oᴜʀ Gʀᴏᴜᴘs Cʜᴀɴɴᴇʟs Aɴᴅ Bᴏᴛs
+
+🌹<b><u>ɠɾσυρʂ αɳԃ ƈԋαɳɳҽʅʂ</u></b>
+
+➨<>Tʜᴇ AᴍᴀᴢᴏɴX</>
+✅Tʜɪs Is A Mʏ Pʀɪᴠᴇᴛᴇ Zᴏɴᴇ
+➨<>Gʀᴀᴘʜɪᴄ Mᴏʙɪʟᴇ</>
+✅Yᴏᴜ Cᴀɴ Gᴇᴛ Fʀᴇᴇ Lᴏɢᴏs Iɴ Tʜɪs Cʜᴀɴɴᴇʟ
+➨<>Mᴀғɪᴀ Gɪᴠᴇᴀᴡᴀʏs</>
+✅Yᴏᴜ Cᴀɴ Gᴇᴛ Pʀɪᴍɪᴜᴍ Aᴄᴄᴏᴜɴᴛs Fʀᴇᴇ Usɪɴɢ Tʜɪs Cʜᴀɴɴᴇʟ
+➨<>Sɪɴʜᴀʟᴀ Sᴜʙ Cᴀʀᴛᴏᴏɴ</>
+✅Sɪɴʜᴀʟᴀ Sᴜʙ Cᴀʀᴛᴏᴏɴs Aʀᴇ Aᴠᴀɪʟᴀʙʟᴇ Oɴ Tʜɪs Cʜᴀɴɴᴇʟ
+➨<>SL Nɪɴᴊᴀ Tᴇᴀᴍ</>
+✅Tʜɪs Is A Bᴏᴛs Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ
+
+🌹<b><u>Ⴆσƚʂ</u></b>
+
+➨<>ThenukChanukaBOT</>
+✅Mʏ Assɪsᴛᴀɴᴛ Bᴏᴛ Iɴ Tᴇʟᴇɢʀᴀᴍ"
+
+DEV_BTN = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🔙 Back", callback_data="startmenu")
+                    InlineKeyboardButton("྅𝐀𝐦ͭ𝐚ͪ𝐳ͤ𝐨𝐧 ͯ™ ๛ | •[🇱🇰]•", url="https://t.me/+iXEvYZN6KHtjZTRl"),
+                    InlineKeyboardButton("GRΔƤHƖC MƠƁƖԼЄ", url="https://t.me/+vvS3VAX6OtU1ZjNl")
+                ],
+                [
+                    InlineKeyboardButton("𝗠𝗔𝗙𝗜𝗔 ゞ™ 𝗚𝗶𝘃𝗲𝗮𝘄𝗮𝘆𝘀", url="https://t.me/MafiaGiveaways"),
+                    InlineKeyboardButton("𝙎𝙞𝙣𝙝𝙖𝙡𝙖 𝙎𝙪𝙗 𝘾𝙖𝙧𝙩𝙤𝙤𝙣", url="https://t.me/+grlgQSGuaiQ1OTQ1")
+                ],
+                [
+                    InlineKeyboardButton("••[sʟ ɴɪɴᴊᴀ ᴛᴇᴀᴍ]••", url="https://t.me/SlNinjaTeam"),
+                    InlineKeyboardButton("Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ", url="http://t.me/MrHunterAX")
+                ],
+                [
+                    InlineKeyboardButton("🔙 𝐆𝐨 𝐁𝐚𝐜𝐤 ", callback_data="startmenu")
                 ]
             ]
         )
 
-LOG_TEXT = "<b>✅New User</b>\n\nID: <code>{}</code>\nFirst Name: <a href='tg://user?id={}'>{}{}</a>\nDC ID: <code>{}</code>"
-IF_TEXT = "🍀</u><b>New message</b></u>\n\n<b>🌷Message from:</b> {}\n<b>🌷Name:</b> {}\n\n{}"
-IF_CONTENT = "🍀</u><b>New message</b></u>\n\n<b>🌷Message from:</b> {} \n<b>🌷Name:</b> {}"
+START_BTN = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("🌹 𝐀𝐛𝐨𝐮𝐭 🌹", callback_data="aboutnu"),
+                    InlineKeyboardButton("🙋‍♂ 𝐇𝐞𝐥𝐩 🙋‍♂", callback_data="helpmenu")
+                ],
+                [
+                    InlineKeyboardButton('◇───────────────◇', callback_data="stats_call"),
+                ],
+                [
+                    InlineKeyboardButton('🆘 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐇𝐞𝐥𝐩 🆘', url='http://t.me/MrHunterAX')
+                ],
+            ]
+        )
+
+
+ABOUT_BTN = InlineKeyboardMarkup(
+            [
+                [
+                    Inlinekeyboardbutton("🌻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 🌻", callback_data="devmenu"),
+                    Inlinekeyboardbutton("🌷 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 🌷" url="http://t.me/MrHunterAX")
+                ],
+                [
+                    InlineKeyboardButton("🔙 𝐆𝐨 𝐁𝐚𝐜𝐤 ", callback_data="startmenu")
+                ]
+            ]
+        )
+
+HELP_BTN = InlineKeyboardMarkup(
+            [
+                [
+                    Inlinekeyboardbutton("🌹 𝐀𝐛𝐨𝐮𝐭 🌹", callback_data="aboutnu"),
+                    Inlinekeyboardbutton("🌻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 🌻", callback_data="devmenu")
+                ],
+                [
+                    InlineKeyboardButton("🔙 𝐆𝐨 𝐁𝐚𝐜𝐤 ", callback_data="startmenu")
+                ]
+            ]
+        )
 
 
 async def bot_msg():
@@ -94,15 +156,25 @@ async def start(bot, update):
 
 @assistant.on_message(filters.command("help"))
 async def help(bot, update):
-    await update.reply_text(
-                    text=HELP_TEXT,
-                    reply_markup=BACK,
+    await update.reply_photo(
+                    photo= IMAGE,
+                    caption= HELP_TEXT,
+                    reply_markup=HELP_BTN,
                 ) 
 @assistant.on_message(filters.command("about"))
 async def about(bot, update):
-    await update.reply_text(
-                    text=ABOUT_MSG,
-                    reply_markup=BACK,
+    await update.reply_photo(
+                    photo= IMAGE,
+                    caption= ABOUT_MSG,
+                    reply_markup=ABOUT_BTN,
+                ) 
+
+@assistant.on_message(filters.command("dev"))
+async def dev(bot, update):
+    await update.reply_photo(
+                    photo= IMAGE,
+                    caption= DEV_MSG,
+                    reply_markup=DEV_BTN,
                 ) 
 
 @assistant.on_callback_query(filters.regex("startmenu"))
@@ -115,14 +187,21 @@ async def startmenu(_, query: CallbackQuery):
 @assistant.on_callback_query(filters.regex("help"))
 async def helpmenu(_, query: CallbackQuery):
     await query.edit_message_text(HELP_TEXT,
-        reply_markup=BACK,
+        reply_markup=HELP_BTN,
      disable_web_page_preview=True
     )
 
 @assistant.on_callback_query(filters.regex("about"))
 async def aboutenu(_, query: CallbackQuery):
     await query.edit_message_text(ABOUT_MSG,
-        reply_markup=BACK,
+        reply_markup=ABOUT_BTN,
+     disable_web_page_preview=True
+    )      
+
+@assistant.on_callback_query(filters.regex("dev"))
+async def devmenu(_, query: CallbackQuery):
+    await query.edit_message_text(DEV_MSG,
+        reply_markup=DEV_BTN,
      disable_web_page_preview=True
     )      
              
