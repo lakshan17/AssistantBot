@@ -3,7 +3,6 @@ import pyrogram
 from pyrogram import filters, Client
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InlineQuery)
 from sample_config import Config as C
-from plugins import run
 
 assistant = Client(
    "My-Assistant-Bot",
