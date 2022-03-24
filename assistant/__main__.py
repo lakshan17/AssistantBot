@@ -112,7 +112,7 @@ ABOUT_BTN = InlineKeyboardMarkup(
             [
                 [
                     Inlinekeyboardbutton("🌻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 🌻", callback_data="devmenu"),
-                    Inlinekeyboardbutton("🌷 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 🌷" url="http://t.me/MrHunterAX")
+                    Inlinekeyboardbutton("🌷 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 🌷", url="http://t.me/MrHunterAX")
                 ],
                 [
                     InlineKeyboardButton("🔙 𝐆𝐨 𝐁𝐚𝐜𝐤 ", callback_data="startmenu")
