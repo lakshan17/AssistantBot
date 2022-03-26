@@ -11,6 +11,6 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-assistant = Client("assistant", bot_token=Config.BOT_TOKEN, api_hash=Config.API_HASH, api_id=Config.APP_ID,)
+assistant = Client("assistantbot", bot_token=Config.BOT_TOKEN, api_hash=Config.API_HASH, api_id=Config.APP_ID,)
 tele = TelegramClient("telethon", Config.APP_ID, Config.API_HASH)
 aiohttpsession = aiohttp.ClientSession()
