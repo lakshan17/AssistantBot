@@ -1,3 +1,7 @@
 pyrogram
 TgCrypto
 telegraph 
+asyncio
+aiofiles
+telethon
+aiohttp
