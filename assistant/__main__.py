@@ -210,7 +210,7 @@ async def devmenu(_, query: CallbackQuery):
     m = await message.reply('Designing your logo...wait!')
     await m.edit("📤Uploading...")
     text = message.text.split(None, 1)[1]
-    img = Image.open("./assistant/resources/maskbg.jpg")
+    img = Image.open("./assistant/resources/IMG_20220327_195646_429.jpg")
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
