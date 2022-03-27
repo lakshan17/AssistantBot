@@ -2,7 +2,7 @@ import os
 from pyrogram import filters
 from telegraph import upload_file
 
-@assistant.on_message(filters.command("tm"))
+@assistant.on_message(filters.command("telegraph"))
 async def telegraph(client, message):
     replied = message.reply_to_message
     if not replied:
