@@ -1,5 +1,4 @@
 import os
-
 from pyrogram import filters
 from telegraph import upload_file
 
@@ -33,11 +32,6 @@ async def telegraph(client, message):
     )
     message = await message.reply_text("𝐏𝐫𝐨𝐜𝐜𝐞𝐬𝐬𝐢𝐧𝐠...")
     await message.edit_text("𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠...")
-    await message.edit_text("[▇▇░░░░░░░░] 20%")
-    await message.edit_text("[▇▇▇▇░░░░░░] 40%")
-    await message.edit_text("[▇▇▇▇▇▇░░░░] 60%")
-    await message.edit_text("[▇▇▇▇▇▇▇▇░░] 80%")
-    await message.edit_text("[▇▇▇▇▇▇▇▇▇▇] 100%")
     try:
         response = upload_file(download_location)
     except Exception as document:
