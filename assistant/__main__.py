@@ -202,6 +202,34 @@ async def devmenu(_, query: CallbackQuery):
     await query.edit_message_text(DEV_MSG,
         reply_markup=DEV_BTN,
      disable_web_page_preview=True
-    )      
+    )    
+
+ ")
+    else:
+        pass
+    m = await message.reply('Designing your logo...wait!')
+    await m.edit("📤Uploading...")
+    text = message.text.split(None, 1)[1]
+    img = Image.open("./assistant/resources/maskbg.jpg")
+    draw = ImageDraw.Draw(img)
+    image_widthz, image_heightz = img.size
+    pointsize = 500
+    fillcolor = "gold"
+    shadowcolor = "blue"
+    font = ImageFont.truetype("./bot/resources/Flashing.otf", 400)
+    w, h = draw.textsize(text, font=font)
+    h += int(h*0.21)
+    image_width, image_height = img.size
+    draw.text(((image_widthz-w)/2, (image_heightz-h)/2), text, font=font, fill=(255, 255, 255))
+    x = (image_widthz-w)/2
+    y= ((image_heightz-h)/2+6)
+    draw.text((x, y), text, font=font, fill="white", stroke_width=0, stroke_fill="yellow")
+    img.save("masklogo2.jpg")
+    await message.reply_photo(
+                photo=f"masklogo2.jpg",
+                caption= f"All rights received to @MrHunterAX"
+            )
+    await m.delete()
+
              
 assistant.run()
