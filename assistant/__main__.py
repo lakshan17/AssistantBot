@@ -110,8 +110,8 @@ START_BTN = InlineKeyboardMarkup(
 ABOUT_BTN = InlineKeyboardMarkup(
             [
                 [
-                    InlinekeyboardButton("🌻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 🌻", callback_data="devmenu"),
-                    InlinekeyboardButton("🌷 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 🌷", url="http://t.me/MrHunterAX")
+                    InlineKeyboardButton("🌻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 🌻", callback_data="devmenu"),
+                    InlineKeyboardButton("🌷 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 🌷", url="http://t.me/MrHunterAX")
                 ],
                 [
                     InlineKeyboardButton("🔙 𝐆𝐨 𝐁𝐚𝐜𝐤 ", callback_data="startmenu")
@@ -122,8 +122,8 @@ ABOUT_BTN = InlineKeyboardMarkup(
 HELP_BTN = InlineKeyboardMarkup(
             [
                 [
-                    InlinekeyboardButton("🌹 𝐀𝐛𝐨𝐮𝐭 🌹", callback_data="aboutnu"),
-                    InlinekeyboardButton("🌻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 🌻", callback_data="devmenu")
+                    InlineKeyboardButton("🌹 𝐀𝐛𝐨𝐮𝐭 🌹", callback_data="aboutnu"),
+                    InlineKeyboardButton("🌻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 🌻", callback_data="devmenu")
                 ],
                 [
                     InlineKeyboardButton("🔙 𝐆𝐨 𝐁𝐚𝐜𝐤 ", callback_data="startmenu")
@@ -135,7 +135,7 @@ HELP_BTN = InlineKeyboardMarkup(
 async def bot_msg():
     stat = f"""
 🌹Tʜᴀɴᴋ Yᴏᴜ Fᴏʀ Usɪɴɢ Mʏ Assɪsᴛᴀɴᴛ Bᴏᴛ.
-@MrHunterAX
+root@MrHunterAX
 """
     return stat     
 
