@@ -68,7 +68,7 @@ Tʜɪs Is Aʟʟ Oᴜʀ Gʀᴏᴜᴘs, Cʜᴀɴɴᴇʟs Aɴᴅ Bᴏᴛs
 
 🌹<b><u>Ⴆσƚʂ</u></b>
 
-➨<b>ThenukChanukaBOT</b>
+➨ <b>ThenukChanukaBOT</b>
 ✅Mʏ Assɪsᴛᴀɴᴛ Bᴏᴛ Iɴ Tᴇʟᴇɢʀᴀᴍ"""
 
 DEV_BTN = InlineKeyboardMarkup(
