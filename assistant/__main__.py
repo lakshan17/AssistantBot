@@ -205,7 +205,7 @@ async def devmenu(_, query: CallbackQuery):
     )    
 
 @assistant.on_message(filters.command("mlogo"))
-async def logomake(_, message: Message):
+async def logomake(bot, update):
     if len(message.command) != 2:
         return await message.reply_text("Please give a text.")
     else:
