@@ -49,26 +49,26 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
        💥𝐒𝐢𝐭𝐡𝐢𝐣𝐚 𝐃𝐞𝐰𝐦𝐢𝐧𝐚
 """
 
-DEV_MSG="""🌷<b><u>𝙾𝚞𝚛 𝙶𝚛𝚘𝚞𝚙𝚜, 𝙲𝚑𝚊𝚗𝚗𝚎𝚕𝚜 𝚊𝚗𝚍 𝙱𝚘𝚝𝚜</b><u/>🌷
+DEV_MSG="""🌷<b><u>𝙰𝚕𝚕 𝙾𝚞𝚛 𝙶𝚛𝚘𝚞𝚙𝚜, 𝙲𝚑𝚊𝚗𝚗𝚎𝚕𝚜 𝚊𝚗𝚍 𝙱𝚘𝚝𝚜</b><u/>🌷
 
 Tʜɪs Is Aʟʟ Oᴜʀ Gʀᴏᴜᴘs, Cʜᴀɴɴᴇʟs Aɴᴅ Bᴏᴛs
 
 🌹<b><u>ɠɾσυρʂ αɳԃ ƈԋαɳɳҽʅʂ</u></b>
 
-➨<>Tʜᴇ AᴍᴀᴢᴏɴX</>
-✅Tʜɪs Is A Mʏ Gʀᴏᴜᴘ
-➨<>Gʀᴀᴘʜɪᴄ Mᴏʙɪʟᴇ</>
+➨ <b>Tʜᴇ AᴍᴀᴢᴏɴX</b>
+✅Tʜɪs Is A Mʏ 𝙲ʜᴀɴɴᴇʟ
+➨ <b>Gʀᴀᴘʜɪᴄ Mᴏʙɪʟᴇ</b>
 ✅Yᴏᴜ Cᴀɴ Gᴇᴛ Fʀᴇᴇ Lᴏɢᴏs Iɴ Tʜɪs Cʜᴀɴɴᴇʟ
-➨<>Mᴀғɪᴀ Gɪᴠᴇᴀᴡᴀʏs</>
+➨ <b>Mᴀғɪᴀ Gɪᴠᴇᴀᴡᴀʏs</b>
 ✅Yᴏᴜ Cᴀɴ Gᴇᴛ Pʀɪᴍɪᴜᴍ Aᴄᴄᴏᴜɴᴛs Fʀᴇᴇ Usɪɴɢ Tʜɪs Cʜᴀɴɴᴇʟ
-➨<>Sɪɴʜᴀʟᴀ Sᴜʙ Cᴀʀᴛᴏᴏɴ</>
+➨ <b>Sɪɴʜᴀʟᴀ Sᴜʙ Cᴀʀᴛᴏᴏɴ</b>
 ✅Sɪɴʜᴀʟᴀ Sᴜʙ Cᴀʀᴛᴏᴏɴs Aʀᴇ Aᴠᴀɪʟᴀʙʟᴇ Oɴ Tʜɪs Cʜᴀɴɴᴇʟ
-➨<>SL Nɪɴᴊᴀ Tᴇᴀᴍ</>
+➨ <b>SL Nɪɴᴊᴀ Tᴇᴀᴍ</b>
 ✅Tʜɪs Is A Bᴏᴛs Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ
 
 🌹<b><u>Ⴆσƚʂ</u></b>
 
-➨<>ThenukChanukaBOT</>
+➨<b>ThenukChanukaBOT</b>
 ✅Mʏ Assɪsᴛᴀɴᴛ Bᴏᴛ Iɴ Tᴇʟᴇɢʀᴀᴍ"""
 
 DEV_BTN = InlineKeyboardMarkup(
@@ -83,7 +83,7 @@ DEV_BTN = InlineKeyboardMarkup(
                 ],
                 [
                     InlineKeyboardButton("••[sʟ ɴɪɴᴊᴀ ᴛᴇᴀᴍ]••", url="https://t.me/SlNinjaTeam"),
-                    InlineKeyboardButton("Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ", url="http://t.me/MrHunterAX")
+                    InlineKeyboardButton("Tʜεиᴜᴋ'ร Aรรɪรᴛᴀиᴛ", url="http://t.me/ThenukChanukaBOT")
                 ],
                 [
                     InlineKeyboardButton("🔙 𝐆𝐨 𝐁𝐚𝐜𝐤 ", callback_data="startmenu")
@@ -149,7 +149,7 @@ async def stats_callbacc(_, CallbackQuery):
 async def start(bot, update):
     await update.reply_photo(
                     photo= IMAGE,
-                    caption= START_TEXT.format(info.first_name),
+                    caption= START_TEXT.format(message.from_user.mention),
                     reply_markup= START_BTN,
                 )                      
 
@@ -178,7 +178,7 @@ async def dev(bot, update):
 
 @assistant.on_callback_query(filters.regex("startmenu"))
 async def startmenu(_, query: CallbackQuery):
-    await query.edit_message_text(START_TEXT.format(info.first_name),
+    await query.edit_message_text(START_TEXT.format(message.from_user.mention),
         reply_markup=START_BTN,
      disable_web_page_preview=True
     )
