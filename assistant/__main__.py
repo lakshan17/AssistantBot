@@ -204,7 +204,10 @@ async def devmenu(_, query: CallbackQuery):
      disable_web_page_preview=True
     )    
 
- ")
+@assistant.on_message(filters.command("mlogo"))
+async def logomake(_, message: Message):
+    if len(message.command) != 2:
+        return await message.reply_text("Please give a text.")
     else:
         pass
     m = await message.reply('Designing your logo...wait!')
@@ -216,7 +219,7 @@ async def devmenu(_, query: CallbackQuery):
     pointsize = 500
     fillcolor = "gold"
     shadowcolor = "blue"
-    font = ImageFont.truetype("./bot/resources/Flashing.otf", 400)
+    font = ImageFont.truetype("./assistant/resources/Flashing.ttf", 400)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
