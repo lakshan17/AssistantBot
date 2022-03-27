@@ -15,7 +15,7 @@ owner_id=C.OWNER_ID
 
 IMAGE="""https://telegra.ph/file/e97f50bc4e0920f0c2475.jpg"""
 
-START_TEXT="""<b>👋Hᴇʟʟᴏ Tʜᴇʀᴇ!
+START_TEXT="""<b>Hᴇʟʟᴏ Tʜᴇʀᴇ {}👋👋👋!
 
 🌹I'ᴍ Tʜᴇ Assɪsᴛᴀɴᴛ Oғ ƚԋҽɳυƙ ƈԋαɳυƙα.
 
@@ -43,20 +43,20 @@ ABOUT_MSG="""🌷<b><u>A Pʀᴏᴊᴇᴄᴛ Bʏ ƚԋҽɳυƙ ƈԋαɳυƙα...</
 ╚<b>Bɪʀᴛʜ Dᴀʏ</b>  » 2006 Sᴇᴘᴛᴇᴍʙᴇʀ 27
 
 🥰 <i>Ⲋⲣⲉⲥⲓⲇⳑ Ⲧⲏⲇⲛⲕ⳽</i>
-        ┏ 𝐌𝐞😎
-        ┃ 𝐫𝐨𝐨𝐭@𝐍𝐎𝐎𝐁
-        ┃ 𝐃𝐢𝐥𝐚𝐬𝐧𝐚 𝐋𝐢𝐭𝐡𝐦𝐚𝐧𝐭𝐡𝐚
-        ┗ 𝐒𝐢𝐭𝐡𝐢𝐣𝐚 𝐃𝐞𝐰𝐦𝐢𝐧𝐚
+       💥𝐌𝐞😎
+       💥𝐫𝐨𝐨𝐭@𝐍𝐎𝐎𝐁
+       💥𝐃𝐢𝐥𝐚𝐬𝐧𝐚 𝐋𝐢𝐭𝐡𝐦𝐚𝐧𝐭𝐡𝐚
+       💥𝐒𝐢𝐭𝐡𝐢𝐣𝐚 𝐃𝐞𝐰𝐦𝐢𝐧𝐚
 """
 
 DEV_MSG="""🌷<b><u>𝙾𝚞𝚛 𝙶𝚛𝚘𝚞𝚙𝚜, 𝙲𝚑𝚊𝚗𝚗𝚎𝚕𝚜 𝚊𝚗𝚍 𝙱𝚘𝚝𝚜</b><u/>🌷
 
-Tʜɪs Is Aʟʟ Oᴜʀ Gʀᴏᴜᴘs Cʜᴀɴɴᴇʟs Aɴᴅ Bᴏᴛs
+Tʜɪs Is Aʟʟ Oᴜʀ Gʀᴏᴜᴘs, Cʜᴀɴɴᴇʟs Aɴᴅ Bᴏᴛs
 
 🌹<b><u>ɠɾσυρʂ αɳԃ ƈԋαɳɳҽʅʂ</u></b>
 
 ➨<>Tʜᴇ AᴍᴀᴢᴏɴX</>
-✅Tʜɪs Is A Mʏ Pʀɪᴠᴇᴛᴇ Zᴏɴᴇ
+✅Tʜɪs Is A Mʏ Gʀᴏᴜᴘ
 ➨<>Gʀᴀᴘʜɪᴄ Mᴏʙɪʟᴇ</>
 ✅Yᴏᴜ Cᴀɴ Gᴇᴛ Fʀᴇᴇ Lᴏɢᴏs Iɴ Tʜɪs Cʜᴀɴɴᴇʟ
 ➨<>Mᴀғɪᴀ Gɪᴠᴇᴀᴡᴀʏs</>
@@ -149,7 +149,7 @@ async def stats_callbacc(_, CallbackQuery):
 async def start(bot, update):
     await update.reply_photo(
                     photo= IMAGE,
-                    caption= START_TEXT,
+                    caption= START_TEXT.format(info.first_name)
                     reply_markup= START_BTN,
                 )                      
 
@@ -178,7 +178,7 @@ async def dev(bot, update):
 
 @assistant.on_callback_query(filters.regex("startmenu"))
 async def startmenu(_, query: CallbackQuery):
-    await query.edit_message_text(START_TEXT,
+    await query.edit_message_text(START_TEXT.format(info.first_name)
         reply_markup=START_BTN,
      disable_web_page_preview=True
     )
