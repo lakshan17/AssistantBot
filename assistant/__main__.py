@@ -243,7 +243,7 @@ async def send(bot, message):
     else:
          await message.reply_text("<b>That's not for you bruh 😅</b>")
 
-@Bot.on_message(filters.command('id') & filters.group)
+@assistant.on_message(filters.command('id') & filters.group)
 async def id(bot, message):
     await message.reply_text(f"<b>➲ Chat ID:</b> <code>{message.chat.id}</code>")
     
