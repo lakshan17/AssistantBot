@@ -208,7 +208,7 @@ async def devmenu(_, query: CallbackQuery):
 @assistant.on_message(filters.command('submit') & filters.private)
 async def report(bot, message):
         if message.reply_to_message:
-                                  await bot.send_message(chat_id=ADMIN, text=f"<b>⭕️NEW MESSAGE⭕️\n \n🧿 Name: {message.from_user.mention}\n🧿 User ID:</b> <code>{message.chat.id}</code>")
+                                  await bot.send_message(chat_id=ADMIN, text=f"<b>⭕️NEW MESSAGE⭕️\n \n🧿 Name: {update.from_user.mention}\n🧿 User ID:</b> <code>{message.chat.id}</code>")
                                   await bot.forward_messages(chat_id=ADMIN, from_chat_id=message.from_user.id, message_ids=message.reply_to_message.message_id)
                                   await message.reply_text("<b>✅ Your Feedback Successfully Submitted to the Admins</b>")
         else:
@@ -243,6 +243,10 @@ async def send(bot, message):
     else:
          await message.reply_text("<b>That's not for you bruh 😅</b>")
 
+@Bot.on_message(filters.command('id') & filters.group)
+async def id(bot, message):
+    await message.reply_text(f"<b>➲ Chat ID:</b> <code>{message.chat.id}</code>")
+    
 
 @assistant.on_message(filters.command("mlogo"))
 async def logomake(bot, update):
