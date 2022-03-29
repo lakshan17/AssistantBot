@@ -251,12 +251,12 @@ async def id(bot, message):
 @assistant.on_message(filters.command("mlogo"))
 async def logomake(bot, update):
     if len(update.command) != 2:
-        return await message.reply_text("Please give a text.")
+        return await update.reply_text("Please give a text.")
     else:
         pass
-    m = await message.reply('Designing your logo...wait!')
+    m = await update.reply('Designing your logo...wait!')
     await m.edit("📤Uploading...")
-    text = message.text.split(None, 1)[1]
+    text = update.text.split(None, 1)[1]
     img = Image.open("./assistant/resources/IMG_20220327_195646_429.jpg")
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
@@ -272,11 +272,11 @@ async def logomake(bot, update):
     y= ((image_heightz-h)/2+6)
     draw.text((x, y), text, font=font, fill="white", stroke_width=0, stroke_fill="yellow")
     img.save("masklogo2.jpg")
-    await message.reply_photo(
+    await update.reply_photo(
                 photo=f"masklogo2.jpg",
-                caption= f"All rights received to @MrHunterAX"
+                caption= f"✅All rights received to @MrHunterAX
+Join @TheAmazonX"
             )
     await m.delete()
-
              
 assistant.run()
