@@ -274,8 +274,7 @@ async def logomake(bot, update):
     img.save("masklogo2.jpg")
     await update.reply_photo(
                 photo=f"masklogo2.jpg",
-                caption= f"✅All rights received to @MrHunterAX
-Join @TheAmazonX"
+                caption= f"✅All rights received to @MrHunterAX\nJoin @TheAmazonX"
             )
     await m.delete()
              
