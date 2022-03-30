@@ -257,13 +257,13 @@ async def logomake(bot, update):
     m = await update.reply('Designing your logo...wait!')
     await m.edit("📤Uploading...")
     text = update.text.split(None, 1)[1]
-    img = Image.open("./assistant/resources/IMG_20220327_195646_429.jpg")
-    draw = ImageDraw.Draw(img)
+    img = Picture.open("./assistant/resources/IMG_20220327_195646_429.jpg")
+    draw = PictureDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
     fillcolor = "gold"
     shadowcolor = "blue"
-    font = ImageFont.truetype("./assistant/resources/Flashing.ttf", 400)
+    font = PictureFont.truetype("./assistant/resources/Flashing.ttf", 400)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
